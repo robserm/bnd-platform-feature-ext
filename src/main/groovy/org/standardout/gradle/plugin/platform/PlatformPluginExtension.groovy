@@ -304,6 +304,21 @@ class PlatformPluginExtension {
 	 * The target file for the 'updateSiteZip' task.
 	 */
 	File updateSiteZipFile
+
+	/**
+	 * If the update site should be appended instead of over-written.
+	 */
+	boolean appendUpdateSite = false
+
+	/**
+	 * If after creating the update site, additional files should be created for
+	 * each feature contained in the update site, that includes the information
+	 * on which versions are contained in the update site.
+	 *
+	 * This can be used with tools like Renovate to automated updates of feature
+	 * versions where the update site is used.
+	 */
+	boolean createFeatureVersionFiles = false
 	
 	/**
 	 * The directory of a local Eclipse installation. If none is specified the
@@ -334,7 +349,7 @@ class PlatformPluginExtension {
 	 * XXX Above artifact creates update sites that are often missing plugins - reason is unclear.
 	 * Issue does not happen with recent eclipse versions (e.g. 2023-09) but attempts to create a new working minimal product failed. 
 	 */
-	def eclipseMirror = 'https://ftp.fau.de/eclipse/technology/epp/downloads/release/2023-09/R/eclipse-rcp-2023-09-R-linux-gtk-x86_64.tar.gz'
+	def eclipseMirror = 'https://archive.eclipse.org/technology/epp/downloads/release/2023-09/R/eclipse-rcp-2023-09-R-linux-gtk-x86_64.tar.gz'
 	
 	/**
 	 * Call feature to create a feature configuration.
