@@ -141,6 +141,7 @@ signing {
 
 tasks.withType(Sign) {
     onlyIf {
-        isRelease || isCI
+//        isRelease || isCI
+		false
     }
 }
